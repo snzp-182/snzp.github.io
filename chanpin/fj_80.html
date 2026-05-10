@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>产品首页</title>
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/slide.css" rel="stylesheet">
+    
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+
+/* 顶部头部 */
+header {
+    height: 70px;
+    padding: 0 20px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 180px; /* 避开左侧导航 */
+    right: 0;
+    z-index: 99;
+}
+
+/* 左侧logo */
+.logo {
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    z-index: 100;
+}
+.logo img {
+    height: 50px;
+}
+
+/* 搜索框 */
+#top_input {
+    display: flex;
+    align-items: center;
+}
+#top_input input {
+    padding: 5px;
+    height: 40px;
+    width: 280px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#top_input img {
+    height: 40px;
+    margin-left: 5px;
+}
+
+/* 右侧导航 */
+header ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: 12px;
+    align-items: center;
+}
+
+/* ========= 竖向导航核心样式 ========= */
+#nav {
+    width: 180px;
+    background: #0A7EB8; /* 你要的蓝色 */
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 70px; /* 让出顶部头部高度，不重叠 */
+    z-index: 98;
+}
+
+#nav ul {
+    display: flex;
+    flex-direction: column;
+}
+
+#nav a {
+    display: block;
+    padding: 16px 20px;
+    color: #fff;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* 鼠标悬浮 */
+#nav a:hover {
+    background: #409cd8;
+    padding-left: 25px;
+    transition: 0.3s;
+}
+
+/* 当前高亮 */
+#nav a.acti {
+    background: #ff9900;
+    color: #fff;
+    font-weight: bold;
+}
+
+/*调整轮播图下方的分布
+ */
+.product-wrap {
+    display: flex;
+    /* 整体水平居中 + 元素均匀分散 */
+    justify-content: space-around;
+    align-items: center;
+    margin-left: -20px;
+    margin-top: 20px;
+    /* 去掉左边内边距 */
+    padding-left: 0;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.product-item {
+    text-align: center;
+}
+.product-item img {
+    width: 160px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.product-item img:hover {
+    transform: scale(1.08);
+}
+.product-item h2 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 10px 0 0;
+    color: #333;
+}
+
+/*轮播图*/
+
+/* 自动轮播样式 */
+.banner-container{
+	width:1200px;
+	height:400px;
+	/* 轮播图居中 */
+	margin:1rem auto;
+	/* 隐藏超出展示容器的内容 */
+	overflow: hidden;
+	position: relative;
+}
+
+.banner-container .banner-img-container {
+	width:9000px;
+	height:2000px;
+	overflow: hidden;
+	position: absolute;
+	/* 开启弹性盒，让图片横向排列 */
+	display: flex;
+	animation: run 10s ease infinite;
+}
+
+.banner-container .banner-img-container img{
+	width:1200px;
+	height:1500px;
+}
+
+/* 动画关键帧 */
+@keyframes run {
+	0%,10%{
+		/* margin-left: 0; */
+		transform: translateX(0);
+	}
+	20%,30%{
+		/* margin-left: -1200px;; */
+		transform: translateX(-1200px);
+	}
+	40%,50%{
+		/* margin-left: -2400px; */
+		transform: translateX(-2400px);
+	}
+	60%,70%{
+		/* margin-left: -3600px; */
+		transform: translateX(-3600px);
+	}
+	80%,90%{
+		/* margin-left: -4800px; */
+		transform: translateX(-4800px);
+	}
+	100%{
+		/* margin-left: 0; */
+		transform: translateX(0);
+	}
+}
+.stair{
+  text-align:left;
+  margin: 60px 0 60px;
+  
+}
+.stair span {
+  display: inline-block;
+  text-align:left;
+}
+/* 主体内容：给右侧留位置 + 顶部留头部高度 */
+/* ========= 底部固定在页面底部 ========= */
+
+.footer {
+  background: #0A7EB8;
+  color: #fff;
+  padding: 30px 20px;
+  margin-top: 30px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 20px;
+}
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+.footer-col h3 {
+    font-size: 16px;
+    color: #ff9900;
+    margin-bottom: 12px;
+}
+.footer-col a, .footer-col p {
+    color: #fff;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size:13px;
+}
+#backTop {
+    cursor: pointer;
+    color: #ff9900;
+}
+/* 主体内容：给右侧留位置 + 顶部留头部高度 */
+body {
+		background-color: #F1F7FB;
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position: center;
+    padding-left: 180px;
+    padding-top: 70px;
+     display: flex;
+  flex-direction: column;
+  min-height: 100vh;  /* 关键 */
+  padding-left: 240px;/* 你的左侧导航宽度 */
+  padding-top: 70px;  /* 你的顶部高度 */
+}
+html, body {
+  height: 100%;       /* 关键 */
+  margin: 0;
+}
+.content {
+  flex: 1; /* 让内容自动撑满，把底部挤到最下面 */
+}
+</style>
+</head>
+
+<body>
+
+    <!-- 左侧LOGO -->
+    <div class="logo">
+        <img src="img/dkgb.png" alt="图标">
+    </div>
+
+    <!-- 顶部头部 -->
+    <header>
+        <!-- 搜索框 -->
+        <div id="top_input">
+            <input type="text" placeholder="请输入您要搜索的内容">
+            <a href="http://doc.vrd.net.cn/tstore_v1/web/search.html">
+                <img src="img/search.png" alt="搜索">
+            </a>
+        </div>
+
+        <!-- 右侧导航 -->
+        <ul>
+            <li><a href="favorites.html" title="我的收藏"><img class="care" src="img/care.png" alt="收藏"></a></li>
+            <li><a href="orders.html" title="我的订单"><img class="order" src="img/order.png" alt="订单"></a></li>
+            <li><a href="cart.html" title="我的购物车"><img class="shopcar" src="img/shop_car.png" alt="购物车"></a></li>
+            <li><a href="help.html">帮助</a></li>
+            <li><a href="login.html">登录</a></li>
+        </ul>
+    </header>
+<div>
+    <!-- 左侧主导航 -->
+    <nav id="nav">
+        <ul>
+        	<li><a href="fj.html">方&nbsp; &nbsp;   &nbsp;井</a></li>
+            <li><a href="fj_70.html">方70cm井</a></li>
+            <li><a href="fj_80.html" class="acti">方80cm井</a></li>
+            <li><a href="fj_100.html">方100cm井</a></li>
+            <li><a href="fj_110.html">方1.1m井</a></li>
+            <li><a href="fj_120.html">方1.2m井</a></li>
+            <li><a href="fj_130.html">方1.3m井</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+    			<div class="banner-container">
+		<div class="banner-img-container">
+			<img class="w-100" src="img/yj1110.jpg"alt="">
+			<img class="w-100" src="img/lys1.png"alt="" >
+			<img class="w-100" src="img/lys2.png"alt="" >
+		</div>
+	</div>
+    	
+      <!-- 800*800*1000*100  -->
+          <h2 class="stair"><span>800*800*1000*100</span></h2>
+     <div class="product-wrap" style="display: flex;gap: 40px; margin-top: 20px; padding-left: 20px;">
+   	<div class="col-9 product-item">
+   	<img src="img/yj11103.png" style="width: 160px; padding-left: 20px;padding-top: 10px;margin-left:40px"/>
+   	<h2 style="padding-left: 20px;top: 20px;">800*800*1000*100(300管)方井</h4>
+   </div>
+   <div>
+   		<img src="img/yj11104.png" style="width: 160px; padding-left: 20px;margin-left:60px;padding-top: 10px"/>
+    	<h2 style="padding-left: 50px;">800*800*1000*100(400管)方井</h4>
+   </div>
+    <div>
+   		<img src="img/yj11105.png" style="width: 160px; padding-left: 20px;padding-top: 10px;margin-left:50px"/>
+    <h2 style="padding-left: 50px;">800*800*1000*100(500管)方井</h4>
+   </div>
+   <br>
+   </div>
+      <!-- 800*800*1000*150  -->
+          <h2 class="stair"><span>800*800*1000*150</span></h2>
+     <div class="product-wrap" style="display: flex;gap: 40px; margin-top: 20px; padding-left: 20px;">
+   	<div class="col-9 product-item">
+   	<img src="img/yj11103.png" style="width: 160px; padding-left: 20px;padding-top: 10px;margin-left:40px"/>
+   	<h2 style="padding-left: 20px;top: 20px;">800*800*1000*150(300管)方井</h4>
+   </div>
+   <div>
+   		<img src="img/yj11104.png" style="width: 160px; padding-left: 20px;margin-left:60px;padding-top: 10px"/>
+    	<h2 style="padding-left: 50px;">800*800*1000*150(400管)方井</h4>
+   </div>
+    <div>
+   		<img src="img/yj11105.png" style="width: 160px; padding-left: 20px;padding-top: 10px;margin-left:50px"/>
+    <h2 style="padding-left: 50px;">800*800*1000*150(500管)方井</h4>
+   </div>
+   <br>
+   </div>
+    <!-- 底部 -->
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>导航菜单</h3>
+                <a href="shouye.html">首页</a>
+                <a href="fj.html">方井</a>
+                <a href="yjd.html">圆井</a>
+                <a href="lys.html">路沿石</a>
+                <a href="dkgb.html">盖板</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>网站地图</h3>
+                <a href="help.html">帮助中心</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>联系方式</h3>
+                <p>电话：138 8888 8888</p>
+                <p>微信：13888888888</p>
+                <p>地址：山东省济宁市嘉祥县万张街道楚庄村济宁明茂水泥制品有限公司</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>版权信息</h3>
+                <p>© 2026 济宁明茂水泥制品有限公司官网</p>
+                <p>版权所有 侵权必究</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>社交媒体</h3>
+                <a href="#">微信公众号</a>
+                <a href="#">抖音</a>
+                <a href="#">建材平台</a>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="back-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ 返回顶部</h3>
+            </div>
+        </div>
+        <div class="footer-bottom">感谢您的访问，真诚为您服务</div>
+    </div>
+    
+    </div>
+
+
+   
+   </div>
+</body>
+</html>

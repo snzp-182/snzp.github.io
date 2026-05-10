@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>产品首页</title>
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/slide.css" rel="stylesheet">
+    
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+		background-color: #F1F7FB;
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-left: 180px;
+    padding-top: 70px;
+}
+
+/* 顶部头部 */
+header {
+    height: 70px;
+    padding: 0 20px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 180px;
+    right: 0;
+    z-index: 99;
+}
+
+/* 左侧logo */
+.logo {
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    z-index: 100;
+}
+.logo img {
+    height: 50px;
+}
+
+/* 搜索框 */
+#top_input {
+    display: flex;
+    align-items: center;
+}
+#top_input input {
+    padding: 5px;
+    height: 40px;
+    width: 280px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#top_input img {
+    height: 40px;
+    margin-left: 5px;
+}
+
+/* 右侧导航 */
+header ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: 12px;
+    align-items: center;
+}
+
+/* 竖向导航 */
+#nav {
+    width: 180px;
+    background: #0A7EB8;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 70px;
+    z-index: 98;
+}
+#nav ul {
+    display: flex;
+    flex-direction: column;
+}
+#nav a {
+    display: block;
+    padding: 16px 20px;
+    color: #fff;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+#nav a:hover {
+    background: #409cd8;
+    padding-left: 25px;
+    transition: 0.3s;
+}
+#nav a.acti {
+    background: #ff9900;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* 内容 */
+.content {
+  flex: 1;
+  padding: 20px;
+  background: #f6f7f9;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-item {
+  width: 220px;
+  height: 60px;
+  margin-left: 60px;
+  background: #B8B8B8;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 5px #00000010;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.product-item:hover {
+  transform: scale(1.05);
+}
+.product-item a {
+  font-size: 26px;
+  color: #000;
+}
+
+/* 底部：和左侧导航完全分开 */
+.footer {
+  background: #0A7EB8;
+  color: #fff;
+  padding: 30px 20px;
+  margin-top: auto;
+  margin-left: 60px;   /* 左侧空隙 */
+  margin-right: 20px;  /* 右侧空隙 */
+  border-radius: 8px 8px 0 0;
+}
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+}
+.footer-col h3 {
+  font-size: 16px;
+  color: #ff9900;
+  margin-bottom: 12px;
+}
+.footer-col a, .footer-col p {
+  color: #fff;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 13px;
+}
+.back-top {
+  cursor: pointer;
+  color: #ff9900;
+}
+</style>
+</head>
+
+<body>
+    <!-- 左侧LOGO -->
+    <div class="logo">
+        <img src="img/dkgb.png" alt="图标">
+    </div>
+
+    <!-- 顶部头部 -->
+    <header>
+        <div id="top_input">
+            <input type="text" placeholder="请输入您要搜索的内容">
+            <a href="http://doc.vrd.net.cn/tstore_v1/web/search.html">
+                <img src="img/search.png" alt="搜索">
+            </a>
+        </div>
+
+        <ul>
+            <li><a href="favorites.html" title="我的收藏"><img class="care" src="img/care.png" alt="收藏"></a></li>
+            <li><a href="orders.html" title="我的订单"><img class="order" src="img/order.png" alt="订单"></a></li>
+            <li><a href="cart.html" title="我的购物车"><img class="shopcar" src="img/shop_car.png" alt="购物车"></a></li>
+            <li><a href="help.html">帮助</a></li>
+            <li><a href="login.html">登录</a></li>
+        </ul>
+    </header>
+
+    <!-- 左侧导航 -->
+    <nav id="nav">
+        <ul>
+            <li><a href="shouye.html">首页</a></li>
+            <li><a href="fj.html">方井</a></li>
+            <li><a href="yjd.html" class="acti">圆井</a></li>
+            <li><a href="jgq.html">加高圈</a></li>
+            <li><a href="lys.html">路沿石</a></li>
+            <li><a href="wkgb.html">无孔盖板</a></li>
+            <li><a href="dkgb.html">单孔盖板</a></li>
+        </ul>
+    </nav>
+
+    <!-- 内容区域 -->
+    <div class="content">
+        <div class="product-item"><a href="yj_700.html">内径700圆井</a></div>
+        <div class="product-item"><a href="yj_800.html">内径800圆井</a></div>
+        <div class="product-item"><a href="yj_1000.html">内径1000圆井</a></div>
+        <div class="product-item"><a href="yj_1250.html">内径1250圆井</a></div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>导航菜单</h3>
+                <a href="shouye.html">首页</a>
+                <a href="fj.html">方井</a>
+                <a href="yjd.html">圆井</a>
+                <a href="lys.html">路沿石</a>
+                <a href="dkgb.html">盖板</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>网站地图</h3>
+                <a href="help.html">帮助中心</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>联系方式</h3>
+                <p>电话：138 8888 8888</p>
+                <p>微信：13888888888</p>
+                <p>地址：山东省济宁市嘉祥县万张街道楚庄村济宁明茂水泥制品有限公司</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>版权信息</h3>
+                <p>© 2026 济宁明茂水泥制品有限公司官网</p>
+                <p>版权所有 侵权必究</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>社交媒体</h3>
+                <a href="#">微信公众号</a>
+                <a href="#">抖音</a>
+                <a href="#">建材平台</a>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="back-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ 返回顶部</h3>
+            </div>
+        </div>
+        <div class="footer-bottom">感谢您的访问，真诚为您服务</div>
+    </div>
+</body>
+</html>
